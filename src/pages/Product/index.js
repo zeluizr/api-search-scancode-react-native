@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Text, View, Image, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, Text, View } from "react-native";
 
 export default function App({ route }) {
   const { ean } = route.params;
   const [product, setProduct] = useState({});
+  const url = "http://192.168.1.16:3001";
 
   useEffect(() => {
     async function getProduct() {
-      const response = await axios.get(`http://192.168.1.16:3001/ean/${ean}`);
+      const response = await axios.get(`${url}/ean/${ean}`);
       const products = response.data.map((product) => {
         setProduct({
           name: product.productName,
