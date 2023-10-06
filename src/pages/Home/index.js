@@ -21,7 +21,11 @@ export default function App({ navigation }) {
   };
 
   if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+    return (
+      <Text>
+        Requesting for camera permission, please allow access to camera.
+      </Text>
+    );
   }
 
   if (hasPermission === false) {
